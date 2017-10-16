@@ -1,0 +1,55 @@
+<style>
+        html, body {
+            background-color: #fff;
+            font-family: 'Raleway', sans-serif;
+            height: 100vh;
+            margin: 0;
+        }
+
+        table {
+            width: 500px;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .error {
+            color: #ff5722;
+            font-weight: 900;
+            font-size: 30px;
+        }
+
+        .error-text {
+            color: #ff5722;
+            font-size: 18px;
+        }
+
+        .btn-home {
+            background-color: #00adb5;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 5px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .btn-home:hover {
+            background-color: #ff5722;
+            color: #fff;
+        }
+</style>

@@ -1,0 +1,32 @@
+.register-box{
+  -webkit-box-shadow: 17px 19px 25px -15px rgba(190,191,194,0.48);
+  -moz-box-shadow: 17px 19px 25px -15px rgba(190,191,194,0.48);
+  box-shadow: 17px 19px 25px -15px rgba(190,191,194,0.48);
+  background-color: #D6D2CE;
+  margin-top: 80px;
+  padding-bottom: 40px;
+}
+.margin-register{
+	margin: 0 0 60px 0;
+}
+h4.free-trial-text{
+  color: #ff5722;
+  padding: 20px 0 5px 0;
+}
+.btn-register{
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background-color: #00ADB5;
+  padding: 6px 15px 6px 15px;
+  text-decoration: none;
+  border-radius: 0px;
+  margin-top: 10px;
+}
+.btn-register:hover {
+  background: #FD5722;
+  text-decoration: none;
+}
+.select-country{
+  color: #9C9999;
+}

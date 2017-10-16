@@ -1,0 +1,50 @@
+{
+  "name": "radiobox.css",
+  "version": "1.0.1",
+  "main": "dist/css/radiobox.min.css",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "index.html",
+    "logo.png",
+    "bg.png",
+    "gh-pages.css",
+    "*.png",
+    "*.jpg",
+    "*.log",
+    ".gitignore",
+    "conf",
+    "demo",
+    ".sass-lint.yml",
+    "lib",
+    "gulpfile.js",
+    "*.md"
+  ],
+  "description": "Tiny set of CSS3 animations for your radio inputs.",
+  "authors": [
+    "720kb <tech@720kb.net>",
+    "45kb <filippo.oretti@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/720kb/",
+  "keywords": [
+    "radio",
+    "forms",
+    "animations",
+    "animated",
+    "form",
+    "input",
+    "css",
+    "css3"
+  ],
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "bd4a6f8762907882b61fe2793aeafbc109ca28f8"
+  },
+  "_source": "https://github.com/720kb/radiobox.css.git",
+  "_target": "~1.0.0",
+  "_originalSource": "radiobox.css"
+}

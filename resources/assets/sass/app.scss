@@ -1,0 +1,159 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// Variables
+@import "fonts";
+@import "pages/home";
+@import "pages/login";
+@import "pages/register";
+@import "pages/contact";
+@import "pages/faqs";
+@import "pages/privacy";
+@import "pages/reset";
+
+//pages partials
+@import "partials/pages/features";
+@import "partials/pages/pricing";
+@import "partials/pages/advertising";
+@import "partials/mainnav";
+@import "partials/footer";
+@import "partials/usernav";
+
+// Trendle User
+@import "trendle/profile";
+@import "trendle/subscription";
+@import "trendle/sellerreview";
+
+//ADMIRE
+@import "admire";
+@import "trendle/profile";
+@import "trendle/marketplace";
+@import "trendle/billing";
+@import "trendle/subscription";
+@import "trendle/sellerreview";
+@import "trendle/campaign";
+@import "trendle/refunds";
+@import "trendle/pnl";
+@import "trendle/adsperformance";
+@import "trendle/adsprodcosts";
+@import "trendle/campaignmanager";
+
+// Admin Partials
+@import "admin/cronsched";
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+main {
+	flex: 1 0 auto;
+}
+a.btn-trendle{
+  background-color: #4AADB9;
+  margin-top: 9px;
+  margin-right: 8px;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.margin-nav{
+  margin-top: 51px;
+}
+.margin-top-60{
+  margin-top: 60px;
+}
+.forgot-password-orange {
+  color: #ff5722;
+  float: right;
+  padding-top: 25px;
+  font-size: 13px;
+}
+.form-control {
+  border-radius: 0px;
+}
+.white-text {
+  color: #fff;
+}
+.text-white{
+	color: white;
+}
+.color-orange{
+	color: #FF5722;
+}
+.color-blue{
+  color: #4AADB9;
+}
+
+.background-orange{
+	background-color: #FF5722;
+	border: 1px solid #FF5722;
+	color:#fff;
+}
+
+.background-orange:hover {
+	color:#fff;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.btn-primary {
+	background-color: #00ADB5;
+	border-color: #00ADB5;
+	border-radius: 0;
+}
+
+.btn-primary:hover {
+	background-color: #07C4DD;
+	border-color: #07C4DD;
+}
+
+.dontdisplay {
+  display:none;
+}
+
+.refunds-small-icon {
+	height: 14px;
+  width: 14px;
+  margin-right: 11px;
+}
+
+#menu .fa {
+	color: #FF5722;
+}
+
+.info {
+	background-color: #d9edf7;
+}
+
+.m-t-13 {
+	margin-top: 13px !important;
+}
+
+.button-rectangle {
+	border-radius: 0;
+}
+
+@media (min-width: 768px){
+	.sidebar-left-hidden #left .refunds-small-icon {
+		height: 18px;
+		width: 18px;
+	}
+}

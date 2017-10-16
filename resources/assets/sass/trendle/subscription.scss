@@ -1,0 +1,257 @@
+.subscription-title {
+    color:#00ADB9;
+}
+
+.subscription-header {
+    background-color:#ff5722;
+    color:#ffffff;
+    padding: 8px;
+}
+
+.subscription-header th {
+    text-align:center;
+    border-bottom: 1px solid #303841;
+}
+
+.subscription-header th.description {
+    text-align:left;
+    padding-left:20px;
+}
+
+.subscription-packages {
+    font-weight: bold;
+    color: #303841;
+    padding:10px;
+}
+
+.subscription-packages td {
+    text-align: center;
+    border-bottom: 1px solid #00ADB5;
+}
+.subscription-packages td.description {
+    text-align:left;
+    padding-left:20px;
+}
+
+.subscription-details {
+    text-align: center;
+}
+
+.subscription-details button {
+    background-color:#00ADB5;
+    color:#ffffff;
+    border: 1px solid #ffffff;
+    padding: 5px 20px;
+}
+
+.subscription-blank td {
+    padding-top:50px;
+    border-bottom: 1px solid #303841;
+}
+
+.package-text-total {
+    color:#00ADB5;
+    font-weight:bold;
+}
+
+.package-container-total {
+    padding:5px 10px;
+    border: 1px solid #303841;
+    text-align: center;
+}
+
+#coupon {
+    padding:3px 2px;
+    width:120px;
+    margin-left:10px;
+    border: 1px solid #303841;
+}
+
+#verify-coupon {
+    width:120px;
+    background-color: #ff5722;
+    border: none;
+    color:#fff;
+    margin-top:5px;
+    padding:3px 2px;
+}
+
+.subs-currency {
+    padding-top:7px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.currencies {
+    border-radius:0;
+    border-color:#000000;
+    margin-top:10px;
+}
+
+.subscription-save {
+  font-family: Arial;
+  color: white;
+  font-size: 16px;
+  background-color: #00ADB5;
+  padding: 8px 15px 8px 15px;
+  text-decoration: none;
+  border-radius: 0px;
+  margin-top: 10px;
+}
+
+.btn-paypal {
+  display:inline;
+}
+
+.subs-message {
+  color: #00ADB5;
+  text-align: right;
+  padding: 5px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.text-right {
+  text-align: right;
+}
+
+#verifycoupon {
+  position: relative;
+  top: -1px;
+}
+
+.no-radius {
+  border-radius: 0px !important;}
+
+.base_plan_container{
+  border-radius: 0px;
+}
+
+.baseSubscriptionTable tbody td{
+  text-align: center;
+  vertical-align: middle !important;
+  position: relative;
+}
+/*
+.align_middle{
+  vertical-align: middle !important;
+}*/
+
+.baseSubscriptionTable td{
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+}
+
+.baseSubscriptionTable{
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+.bordered{
+  border: 1px solid #ddd;
+}
+
+.headerSubscription th{
+  border: 1px solid #ddd !important;
+}
+
+.headerSubscription{
+  font-size: 16px;
+}
+
+.bodySubscription td{
+  border: 1px solid #ddd !important;
+}
+
+.baseSubscriptionTable tbody .with_bg{
+  background: #D9EDF7;
+}
+
+.footerMidSubscription{
+  height: 20px;
+  border-bottom: 1px solid #ddd !important;
+  border-left: 1px solid #ddd !important;
+  border-right: 1px solid #ddd !important;
+  border-top: 0px !important;
+  box-shadow: 3px 7px 12px -5px #999099;
+}
+
+.priceSubscription{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.color-green{
+  color: #84aa11;
+}
+
+.no-border{
+  border: 0px !important;
+}
+
+.midBasePlan{
+  z-index: 99;
+  -webkit-box-shadow: 1px 26px 76px -10px rgba(0,0,0,0.58);
+  -moz-box-shadow: 1px 26px 76px -10px rgba(0,0,0,0.58);
+  box-shadow: 1px 26px 76px -10px rgba(0,0,0,0.58);
+}
+
+.card-header{
+  padding: 10px;
+}
+
+.subscriptionBody{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12pt;
+  border: 1px solid #ddd !important;
+}
+
+.tableSmall tbody .info td{
+  background-color: #D9EDF7 !important;
+  font-size: 14px !important;
+}
+
+
+.seeAllFeatures{
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.infoIcon{
+  color:#FF5722;
+}
+
+.priceNoDecimal{
+  font-size: 16px;
+}
+
+.priceDecimal{
+  font-size: 14px;
+}
+
+.baseSubscriptionContainer{
+  margin-bottom: 20px;
+}
+
+.small{
+  display: none;
+}
+
+.cardSubsheader{
+  min-height: 350px;
+}
+
+.subcCard{
+  min-height: 210px
+}
+
+.helpPages{
+  font-size: 14px;
+  color: #FF8000;
+}
+
+.helpPages:hover,
+.helpPages:visited,
+.helpPages:link{
+  text-decoration: none;
+  color: #FF8000; 
+}

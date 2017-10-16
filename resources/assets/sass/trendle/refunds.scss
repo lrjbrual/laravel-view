@@ -1,0 +1,58 @@
+.refunds-header-icon {
+    height: 18px;
+}
+
+.instructions {
+    border: 1px solid #00ADB5;
+}
+
+.instructions h4 {
+    background-color: #00ADB5;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.instructions #action {
+    font-size: 12px;
+    position: relative;
+    top: -5px;
+}
+
+.instructions #msg {
+    padding: 5px;
+}
+
+.refunds-card-normal , .refunds-card-flip {
+    border: 1px solid #929EA3;
+    border-radius: 8px;
+    color: #929EA3;
+}
+
+.refunds-card-normal #spacer {
+    padding-bottom:3px;
+}
+
+.refunds-card-normal #outstanding {
+    color: #929EA3;
+}
+
+.refunds-card-normal #view {
+    color: #ff5722;
+}
+
+.refunds-card-normal #marketplace, .refunds-card-flip #marketplace {
+    color: #00ADB5;
+}
+
+.refunds-card-flip #line {
+    border-top: 1px solid #929EA3;
+}
+
+.text-link {
+    text-decoration: underline;
+    color: #00ADB5;
+}
+
+@media (min-width: 992px) {
+  .modal-fba {
+    max-width: 1200px; } }

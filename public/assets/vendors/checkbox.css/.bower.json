@@ -1,0 +1,50 @@
+{
+  "name": "checkbox.css",
+  "version": "1.1.3",
+  "main": "dist/css/checkbox.min.css",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "index.html",
+    "logo.png",
+    "bg.png",
+    "gh-pages.css",
+    "*.png",
+    "*.jpg",
+    "*.log",
+    ".gitignore",
+    "conf",
+    "demo",
+    ".sass-lint.yml",
+    "lib",
+    "gulpfile.js",
+    "*.md"
+  ],
+  "description": "Tiny set of CSS3 animations for your checkboxes.",
+  "authors": [
+    "720kb <tech@720kb.net>",
+    "45kb <filippo.oretti@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/720kb/checkbox.css",
+  "keywords": [
+    "checkbox",
+    "css",
+    "animations",
+    "animated",
+    "checkboxes",
+    "input",
+    "css",
+    "css3"
+  ],
+  "_release": "1.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.3",
+    "commit": "08468d113da5dfb954cb882436404fbe58be3754"
+  },
+  "_source": "https://github.com/720kb/checkbox.css.git",
+  "_target": "~1.1.2",
+  "_originalSource": "checkbox.css"
+}
