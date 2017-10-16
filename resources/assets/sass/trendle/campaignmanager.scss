@@ -1,0 +1,80 @@
+.addGroup_style{
+	background: #ededed !important;
+}
+
+/* Style the buttons inside the tab */
+div.tab .button {
+  display: inline;
+  color: black;
+  padding: 10px 16px;
+  width: auto;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #A0D9FF;
+  background: #eaeaea; }
+
+.lastButton {
+  border-bottom: 1px solid #cecece !important; }
+
+.table_keywords_ad_campaign > thead > tr > th {
+  vertical-align: middle;
+  padding: 5px; }
+
+.table_keywords_ad_campaign > tbody > tr > td {
+  vertical-align: middle;
+  padding: 5px; }
+
+div.tab .button.active {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-left: 5px solid #4FB7FE;
+  background: #a0d9ff; }
+
+.table_keyword thead {
+  background: #4c4b4b !important;
+  color: #f2f2f2; }
+
+ .tab_content{
+  -webkit-box-shadow: 0px 14px 45px -9px rgba(128,128,128,1);
+  -moz-box-shadow: 0px 14px 45px -9px rgba(128,128,128,1);
+  box-shadow: 0px 14px 45px -9px rgba(128,128,128,1);
+ }
+
+#adscampaignmanager_table .col-sm-12{
+  float: none !important;
+  width: auto !important;
+}
+
+#adscampaignmanager_table .col-sm-6{
+  float: none !important;
+  width: auto !important;
+}
+
+#adscampaignmanager_table thead tr th {
+  padding: 5px;
+  font-size: 12px; }
+
+#adscampaignmanager_table tbody tr td {
+  padding: 5px;
+  font-size: 12px; }
+
+#adscampaignmanager_table tr {
+  padding: 5px; }
+
+#adscampaignmanager_table tr.odd {
+  background: #fbfbfb !important; }
+
+#adscampaignmanager_table.table-striped tbody tr:nth-of-type(odd) {
+  background: #fbfbfb !important; }
+
+.for_editing_col {
+  width:100%;
+  border:none !important;
+  outline:none;
+  background:none;
+  border-bottom: 1px solid #7c7c7c !important;
+}

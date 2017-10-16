@@ -1,0 +1,34 @@
+#home-margin-top{
+  margin-top: 50px;
+}
+.home-banner {
+ background-image: linear-gradient(-225deg, rgba(0,0,0,0.35) 0%,
+ rgba(0,0,0,0.35) 50%), url('/images/banner.png');
+ max-width: 100%;
+ height: 60vh;
+ opacity: 9;
+ background-attachment: fixed;
+ background-size: cover !important;
+ background-repeat: no-repeat;
+ display: flex;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
+ color: white;
+}
+.banner-width{
+  height: 600px;
+}
+.signup-color{
+  background-color:#00ADB5 ;
+  margin-top: 20px;
+  margin-right: 15px;
+  color: white;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}

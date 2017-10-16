@@ -1,0 +1,46 @@
+.navbar-default {
+  background-color: white;
+  border-color: white;
+}
+#nav-color-orange{
+  font-family: Kreon;
+  color: #ff5722;
+}
+#nav-color-blue{
+  font-family: Kreon;
+  color: #00ADB5;
+}
+.font-logo {
+  //  font-family: Kreon;
+  font-size: 1.5em;
+}
+.mobile-collapse-margin{
+  margin-right: 20px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ff5722;
+  font-family: Montserrat;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #00ADB5;
+  background-color: transparent;
+}
+nav ul > li > a:hover::after{
+  content:'';
+  position:absolute;
+  width: 100%;
+  height: 0;
+  left:0;
+  padding-bottom: 31px;
+  border-bottom: 2px solid #ff5722;
+}
+a.register-color{
+  background-color:#00ADB5;
+  margin-top: 8px;
+  margin-right: 15px;
+  color: white;
+  font-family: Montserrat;
+}
+a.register-color:hover{
+  color: #333;
+}

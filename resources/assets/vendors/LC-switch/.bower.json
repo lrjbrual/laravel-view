@@ -1,0 +1,13 @@
+{
+  "name": "LC-switch",
+  "homepage": "https://github.com/LCweb-ita/LC-switch",
+  "_release": "bc9a756c1b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "bc9a756c1b8ebbcc359e96fa4f074fa0f15c62fe"
+  },
+  "_source": "https://github.com/LCweb-ita/LC-switch.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/LCweb-ita/LC-switch.git"
+}

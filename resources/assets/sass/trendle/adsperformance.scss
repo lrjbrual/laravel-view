@@ -1,0 +1,208 @@
+@media (min-width: 992px) {
+  .modal-ads-bid {
+    max-width: 1200px;
+  }
+}
+
+.ruleTableRow{
+	padding: 20px 10px;
+	border: 1px solid #DFDFDF;
+	border-top: 2px solid #DFDFDF;
+}
+
+.ruleListTitleToggle,
+.ruleListTitle{
+	border: 1px solid #DFDFDF;
+}
+
+.ruleListTitleToggle:hover,
+.ruleListTitle:hover{
+	background: #ECEEEF;
+	cursor: pointer;
+}
+
+.filter_parameter{
+  position: relative;
+  float: left;
+  padding:3px 15px 3px 5px;
+  background:#fff;
+  color:#525252;
+  border:1px solid #525252;
+  border-radius:5px;
+  margin-right:10px;
+  margin-top:2px;
+  margin-bottom:2px;
+  font-size: 12px;
+}
+
+.close_filter_selected{
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+}
+
+.dataTables_scroll{
+    overflow:auto;
+}
+
+.wid-20{
+  width:20px;
+}
+
+.wid-30{
+  width:30px;
+}
+
+.wid-40{
+  width:40px;
+}
+
+.wid-50{
+  width:50px;
+}
+
+.wid-60{
+  width:60px;
+}
+
+.wid-70{
+  width:70px;
+}
+
+.wid-90{
+  width:80px;
+}
+
+.wid-100{
+  width:90px;
+}
+
+.wid-110{
+  width:100px;
+}
+
+.wid-120{
+  width:110px;
+}
+
+.wid-130{
+  width:130px;
+}
+
+.wid-140{
+  width:140px;
+}
+
+.wid-150{
+  width:150px;
+}
+
+.th-nowrap{
+  white-space: nowrap;
+}
+
+#adsperformance_table thead tr th {
+  padding: 5px;
+  font-size: 12px; }
+
+#adsperformance_table tbody tr td {
+  padding: 5px;
+  font-size: 12px; }
+
+#adsperformance_table tr {
+  padding: 5px; }
+
+#adsperformance_table tr.odd {
+  background: #fbfbfb !important; }
+
+#adsperformance_table.table-striped tbody tr:nth-of-type(odd) {
+   background: #fbfbfb !important;
+}
+
+.swal2-container{
+  z-index: 1111 !important;
+}
+
+.match_exact{
+  background: #0053ad;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.match_phrase{
+  background: #337ece;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.match_broad{
+  background: #5f97d3;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.match_negativeexact{
+  background: #fca762;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.match_negativephrase{
+  background: #fc7f19;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.camp_auto{
+  background: #f93;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.camp_manual{
+  background: #ef6f6c;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff
+}
+
+.loadingTableContainer{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.31);
+  margin-left: -15px;
+}
+
+#adsperformance_table_processing{
+  position: absolute !important;
+  top: 0px !important;
+  left: 0px !important;
+  height: 107% !important;
+  width: 100% !important;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  text-align: center !important;
+  padding: 1em 0 !important;
+  background: none;
+  z-index: 998;
+}
+
+#adsperformance_table_processing.dataTables_processing {
+  background: rgba(0, 0, 0, 0.31) !important;
+}

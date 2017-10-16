@@ -1,0 +1,2106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: http://db.lewagon.org/ -->
+<sql>
+<datatypes db="mysql">
+<group label="Numeric" color="rgb(238,238,170)">
+<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+<type label="INT" length="0" sql="INT" quote=""/>
+<type label="Integer" length="0" sql="INTEGER" quote=""/>
+<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+</group>
+<group label="Character" color="rgb(255,200,200)">
+<type label="Char" length="1" sql="CHAR" quote="'"/>
+<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+<type label="Binary" length="1" sql="BINARY" quote="'"/>
+<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+</group>
+<group label="Date &amp; Time" color="rgb(200,255,200)">
+<type label="Date" length="0" sql="DATE" quote="'"/>
+<type label="Time" length="0" sql="TIME" quote="'"/>
+<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+<type label="Year" length="0" sql="YEAR" quote=""/>
+<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+</group>
+<group label="Miscellaneous" color="rgb(200,200,255)">
+<type label="ENUM" length="1" sql="ENUM" quote=""/>
+<type label="SET" length="1" sql="SET" quote=""/>
+<type label="Bit" length="0" sql="bit" quote=""/>
+</group>
+</datatypes><table x="3508" y="1248" name="tblmSeller">
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="SellerFirstName" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="SellerLastName" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="SellerEmail" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="CompanyName" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Address" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="City" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="State" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Zipcode" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Country" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Phone" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="isDeleted" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="reasonForLeaving" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="email_for_crm" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="emailpw_for_crm" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSeller</part>
+</key>
+</table>
+<table x="2066" y="2720" name="tblmPillar">
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="PillarName" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPillar</part>
+</key>
+</table>
+<table x="3499" y="420" name="tblmUsers">
+<row name="IDUser" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="Username" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Firstname" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Lastname" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Password" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Access" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="isVerified" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="isInHouse" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="isAdmin" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="isActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="ModifiedBy" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDUser</part>
+</key>
+</table>
+<table x="3501" y="1964" name="tbltCRM_Campaign">
+<row name="IDCRM_Campaign" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="CampaignType" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="CampaignName" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="IsActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="IsDeleted" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_Campaign</part>
+</key>
+</table>
+<table x="3036" y="148" name="tblmPageList">
+<row name="IDPage" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="IDMenu" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmMenuList" row="IDMenu" />
+</row>
+<row name="PageUrl" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="PageDescription" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="PositionIndex" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPage</part>
+</key>
+</table>
+<table x="3298" y="104" name="tblmAccessCredentials">
+<row name="IDAccessCred" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="IDUser" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmUsers" row="IDUser" />
+</row>
+<row name="IDPage" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPageList" row="IDPage" />
+<relation table="tblmPageList" row="IDPage" />
+</row>
+<row name="Access" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="ModifiedBy" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDAccessCred</part>
+</key>
+</table>
+<table x="3474" y="2284" name="tbltCRM_EmlQueue">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="email_from" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="from_name" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="email_to" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="email_cc" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="email_bcc" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="email_subject" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="email_body" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="isSent" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="sent_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="created_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="hasError" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="error_message" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="eml_attachment_linker_id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tbltEmlAttachmentLinker" row="id" />
+</row>
+<row name="campaign_id" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default><relation table="tbltCRM_Campaign" row="IDCRM_Campaign" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="2678" y="2058" name="tblmCRM_PreferredEmlTemplateAttach">
+<row name="IDCRM_PreferredEmlTemplateAttach" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="IDCRM_PreferredEmlTemplate" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmCRM_PreferredEmlTemplate" row="IDCRM_PreferredEmlTemplate" />
+</row>
+<row name="IDCRM_EmlTemplate" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tbltCRM_EmlTemplate" row="IDCRM_EmlTemplate" />
+</row>
+<row name="path" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="filename" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="file_size" null="1" autoincrement="0">
+<datatype>BIGINT(10)</datatype>
+<default>NULL</default></row>
+<row name="eml_attachment_linker_id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_PreferredEmlTemplateAttach</part>
+</key>
+</table>
+<table x="2077" y="2908" name="tblmPricingParticular">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="idpillar" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPillar" row="IDPillar" />
+</row>
+<row name="particular" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="pclass" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1439" y="1965" name="tblmSellerClassAssign">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="idseller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="idsellerclass" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSellerClass" row="id" />
+</row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="2806" y="1450" name="tblmCountry">
+<row name="IDCountry" null="1" autoincrement="0">
+<datatype>BIGINT(20)</datatype>
+<default>NULL</default></row>
+<row name="country_code1" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="country_code2" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="country_desc" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="currsym" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="currcode" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="mkp" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="vat" null="1" autoincrement="0">
+<datatype>DOUBLE</datatype>
+<default>NULL</default></row>
+<row name="col1" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="col2" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="ModifiedBy" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCountry</part>
+</key>
+</table>
+<table x="3080" y="2040" name="tbltCRM_EmlTemplate">
+<row name="IDCRM_EmlTemplate" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDCRM_Campaign" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tbltCRM_Campaign" row="IDCRM_Campaign" />
+</row>
+<row name="TemplateName" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Marketplace" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="TriggerEventDelay" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDCRM_CampaignStatus" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="EmailSubject" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="EmailBody" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="IsActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="CustomListStatus" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="IsDeleted" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="ExcludeBlackList" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_EmlTemplate</part>
+</key>
+</table>
+<table x="4638" y="2951" name="tblmPricingPlan">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="plan_id" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="plan_name" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="plan_amount" null="1" autoincrement="0">
+<datatype>DECIMAL(10,0)</datatype>
+<default>NULL</default></row>
+<row name="str_currency" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="IDPricingSize" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPricingSize" row="IDPricingSize" />
+</row>
+<row name="isActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="2354" y="2928" name="tblmPricingPlanLimit">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="IDPricingPlan" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPricingPlan" row="id" />
+</row>
+<row name="IDPricingParticular" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPricingParticular" row="id" />
+</row>
+<row name="idcronmaster" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="max_val" null="1" autoincrement="0">
+<datatype>INT(50)</datatype>
+<default>NULL</default></row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="3121" y="502" name="tblmSellerReviewComments">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmUsers" row="IDUser" />
+</row>
+<row name="review_id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tbltSellerReviews" row="id" />
+</row>
+<row name="comment" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="review_timestamp" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="isEdited" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="3166" y="1598" name="tbltCRM_CampaignCountry">
+<row name="IDCRM_CampaignCountry" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDCRM_Campaign" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tbltCRM_Campaign" row="IDCRM_Campaign" />
+</row>
+<row name="IDCountry" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmCountry" row="IDCountry" />
+</row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_CampaignCountry</part>
+</key>
+</table>
+<table x="2806" y="1350" name="tblmSellerChannel">
+<row name="IDSellerChannel" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="Channel" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSellerChannel</part>
+</key>
+</table>
+<table x="3202" y="1328" name="tblmSellerChannelAssign">
+<row name="IDSellerChannelAssign" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="IDSellerChannel" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSellerChannel" row="IDSellerChannel" />
+</row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="seller_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="auth_token" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSellerChannelAssign</part>
+</key>
+</table>
+<table x="2414" y="1392" name="tblmSellerChannelCountry">
+<row name="IDSellerChannelCountry" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="IDSellerChannel" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSellerChannel" row="IDSellerChannel" />
+</row>
+<row name="IDCountry" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmCountry" row="IDCountry" />
+</row>
+<row name="SellerChannelCountry" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSellerChannelCountry</part>
+</key>
+</table>
+<table x="1441" y="2246" name="tblmSellerClass">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>NULL</default></row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1738" y="2230" name="tblmPillarClassAssign">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="idpillar" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmPillar" row="IDPillar" />
+</row>
+<row name="idsellerclass" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSellerClass" row="id" />
+</row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1772" y="1019" name="tbltCronTimeSlot">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="idseller" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="idtimeslot" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmCronTimeSlot" row="id" />
+</row>
+<row name="idserver" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="isSubscribed" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1780" y="671" name="tblmPillarCron">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmPillar" row="IDPillar" />
+</row>
+<row name="IDTimeSlot" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tbltCronTimeSlot" row="id" />
+</row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="2462" y="2513" name="tblmPillarMenu">
+<row name="IDPillarMenu" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmPillar" row="IDPillar" />
+</row>
+<row name="PillarMenuName" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="PositionIndex" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPillarMenu</part>
+</key>
+</table>
+<table x="5563" y="2633" name="tblmPricingCoverage">
+<row name="IDPricingCoverage" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDPricingPlan" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPricingPlan" row="id" />
+</row>
+<row name="IDPricingScheme" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="pricing_menu_coverage" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPricingCoverage</part>
+</key>
+</table>
+<table x="3194" y="734" name="tbltCronEmailNotif">
+<row name="ID" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="datesent" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="Sender" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Recipient" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="Subject" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="cron_desc" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="api_used" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="proc_starttime" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="proc_endtime" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="records_saved" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="str_err_msg" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="elapsed_time" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="isCronGen" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="createdby" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="datacreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<key type="PRIMARY" name="">
+<part>ID</part>
+</key>
+</table>
+<table x="2089" y="2467" name="tblmPricingPillarMenu">
+<row name="IDPricingPillarMenu" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmPillar" row="IDPillar" />
+</row>
+<row name="IDPillarMenu" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmPillarMenu" row="IDPillarMenu" />
+</row>
+<row name="IDPricingSize" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPricingPillarMenu</part>
+</key>
+</table>
+<table x="3901" y="900" name="tbltSubscriptionBillingCycle">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="idseller" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="billing_number" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="billing_start" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="billing_end" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="isCurrent" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="4413" y="99" name="tbltSubscriptionAvailedPlans">
+<row name="IDSubscriptionAvailedPlans" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDUser" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmUsers" row="IDUser" />
+</row>
+<row name="IDSubscriptionAvailed" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDPricingPlan" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmPricingPlan" row="id" />
+</row>
+<row name="IDBillingInfo" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmBillingInfo" row="IDBillingInfo" />
+</row>
+<row name="EndsAt" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="Active" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="IDPillar" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSubscriptionAvailedPlans</part>
+</key>
+</table>
+<table x="4189" y="1613" name="tblmPricingScheme">
+<row name="IDPricingScheme" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDPricingSize" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmPricingSize" row="IDPricingSize" />
+</row>
+<row name="price_in_gdp" null="1" autoincrement="0">
+<datatype>INT(10)</datatype>
+<default>NULL</default></row>
+<row name="price_in_usd" null="1" autoincrement="0">
+<datatype>INT(10)</datatype>
+<default>NULL</default></row>
+<row name="isActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="price_effect_from" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="price_effect_to" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPricingScheme</part>
+</key>
+</table>
+<table x="4214" y="1857" name="tblmPricingSize">
+<row name="IDPricingSize" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="CODE" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDPricingSize</part>
+</key>
+</table>
+<table x="2113" y="1225" name="tblmSellerTrialPeriod">
+<row name="IDSellerTrialPrd" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="DateReg" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="TrialStartDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="TrialEndDate" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="MaxNumDays" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="UsageDays" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="BalanceDays" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="IsActivated" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="DateActivated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="EmbedLink" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSellerTrialPrd</part>
+</key>
+</table>
+<table x="1099" y="1865" name="tbltCRM_CampaignStatistics">
+<row name="IDCRM_CampaignStatistics" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDCRM_Campaign" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tbltCRM_Campaign" row="IDCRM_Campaign" />
+</row>
+<row name="EmailRecepient" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="IDCampaignEmailTemplate" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDFulfilledShipment" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IsSent" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="DateSent" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="IsDeleted" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="DateOpen" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="clicks" null="1" autoincrement="0">
+<datatype>INT(5)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_CampaignStatistics</part>
+</key>
+</table>
+<table x="3900" y="1372" name="tblmSchemaMaster">
+<row name="ID" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="isAvailable" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="isAvailed" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="isDeleted" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>ID</part>
+</key>
+</table>
+<table x="2782" y="170" name="tblmMenuList">
+<row name="IDMenu" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="MenuDescription" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="PositionIndex" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="icon" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="icon_hover" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDMenu</part>
+</key>
+</table>
+<table x="2769" y="427" name="tbltSellerReviews">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="review_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="country" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="sku" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="asin" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="review_comment" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="reviewer_rating" null="1" autoincrement="0">
+<datatype>FLOAT</datatype>
+<default>NULL</default></row>
+<row name="reviewer_name" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="order_number" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="status" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="reviewer_profile_url" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="item_profile_url" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="review_id" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="action_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="your_response" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="arrived_on_time" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="item_as_described" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="customer_service" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="rater_role" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="reviewer_email" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="isBlacklist" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="3856" y="2630" name="tbltEmlAttachmentLinker">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(10)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="2230" y="2056" name="tblmCRM_PreferredEmlTemplate">
+<row name="IDCRM_PreferredEmlTemplate" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="TemplateName" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="TriggerEventDelay" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDCRM_CampaignStatus" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="EmailSubject" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="EmailBody" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="EmailAttachments" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_PreferredEmlTemplate</part>
+</key>
+</table>
+<table x="3900" y="644" name="tbltSubscriptionsAvailedCrons">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDSeller" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tblmSeller" row="IDSeller" />
+</row>
+<row name="IDSubscriptionAvlPlan" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default><relation table="tbltSubscriptionAvailedPlans" row="IDSubscriptionAvailedPlans" />
+</row>
+<row name="IDTimeSlot" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="4410" y="466" name="tblmBillingInfo">
+<row name="IDBillingInfo" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDUser" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default><relation table="tblmUsers" row="IDUser" />
+</row>
+<row name="Firstname" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Lastname" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="Email" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Company" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="IDCountry" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="Address1" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="Address2" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="City" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="PostalCode" null="1" autoincrement="0">
+<datatype>VARCHAR(12)</datatype>
+<default>NULL</default></row>
+<row name="State" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="VATNumber" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="NameOnCard" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="CardLastFour" null="1" autoincrement="0">
+<datatype>VARCHAR(4)</datatype>
+<default>NULL</default></row>
+<row name="CardExpMonth" null="1" autoincrement="0">
+<datatype>VARCHAR(6)</datatype>
+<default>NULL</default></row>
+<row name="CardExpYear" null="1" autoincrement="0">
+<datatype>VARCHAR(6)</datatype>
+<default>NULL</default></row>
+<row name="StripeCustomerID" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="Plan" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="StripePaymentStatus" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="ModifiedBy" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDBillingInfo</part>
+</key>
+</table>
+<table x="117" y="2105" name="tblmFrequency">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="952" y="381" name="tblmSales">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="amazon_order_id" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="merchant_order_id" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="purchase_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="last_updated_date" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="order_status" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="fulfillment_channel" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="sales_channel" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="order_channel" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="url" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="ship_service_level" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="product_name" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="sku" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="asin" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="item_status" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="quantity" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="currency" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="item_price" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="item_tax" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="shipping_price" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="shipping_tax" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="gift_wrap_price" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="gift_wrap_tax" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="item_promotion_discount" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="ship_promotion_discount" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="ship_city" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="ship_state" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="ship_postal_code" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="ship_country" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="promotion_ids" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="country" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="is_business_order" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="purchase_order_number" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="price_designation" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="2074" y="1660" name="tblaRegistrationToken">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="email" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="token" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="expiration" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="status" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1109" y="1475" name="tblmSubscriptionAdjustType">
+<row name="IDSubscriptionAdjustType" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSubscriptionAdjustType</part>
+</key>
+</table>
+<table x="1109" y="1617" name="tblmSubscriptionPlan">
+<row name="IDSubscriptionPlan" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="in_year" null="1" autoincrement="0">
+<datatype>FLOAT</datatype>
+<default>NULL</default></row>
+<row name="in_months" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IDCurrency" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="amount" null="1" autoincrement="0">
+<datatype>FLOAT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSubscriptionPlan</part>
+</key>
+</table>
+<table x="1107" y="1349" name="tblmSubscriptionType">
+<row name="IDSubscriptionType" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDSubscriptionType</part>
+</key>
+</table>
+<table x="497" y="381" name="tblmOrders">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="latest_ship_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="order_type" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="purchase_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="buyer_email" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="last_update_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="ship_service_level" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="number_of_items_shipped" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="order_status" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="sales_channel" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="number_of_items_unshipped" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="buyer_name" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="order_total" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="is_premium_order" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="earliest_ship_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="market_place_id" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="fulfillment_channel" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="payment_method" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="shipping_address" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="is_prime" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="shipment_service_level_category" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="seller_order_id" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="amazon_order_id" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="country" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="496" y="1262" name="tblmUsers_PwdRequest">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="request_datetime" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="Str_hashkey" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="email_address" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="is_confirmed" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="date_confirmed" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="date_pwd_changed" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="495" y="1504" name="tbltAuditTrial">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="trandt" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="particular" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="occured_at" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="115" y="1708" name="tblmOccurrence">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="117" y="1841" name="tblmMiscTbl">
+<row name="IDMiscTbl" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="desc" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="val" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="ModifiedBy" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDMiscTbl</part>
+</key>
+</table>
+<table x="110" y="2273" name="tblmSellerReviewFilters">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="filter_name" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="country_filter" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="sku_filter" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="rating_from_filter" null="1" autoincrement="0">
+<datatype>FLOAT</datatype>
+<default>NULL</default></row>
+<row name="rating_to_filter" null="1" autoincrement="0">
+<datatype>FLOAT</datatype>
+<default>NULL</default></row>
+<row name="date_created_filter" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="date_created_from_filter" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="date_created_to_filter" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="filter_by" null="1" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1454" y="374" name="tblmCurrencyExchangeRates">
+<row name="IDCurrencyExchangeRates" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="currency_code" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ave_rate" null="1" autoincrement="0">
+<datatype>DOUBLE</datatype>
+<default>NULL</default></row>
+<row name="daterecorded" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="CreatedBy" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateCreated" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
+<row name="ModifiedBy" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<row name="DateModified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCurrencyExchangeRates</part>
+</key>
+</table>
+<table x="1097" y="2211" name="tblmCurrency">
+<row name="id" null="1" autoincrement="0">
+<datatype>BIGINT(20)</datatype>
+<default>NULL</default></row>
+<row name="IDCountry" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="currency_code" null="1" autoincrement="0">
+<datatype>VARCHAR(5)</datatype>
+<default>NULL</default></row>
+<row name="currency_desc" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="symbol" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="812" y="1858" name="tbltCRM_HourLog">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="logdate_header" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="hour_log" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="minute_from" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="minute_to" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="idmaxlimit" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="actual_sent" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1461" y="764" name="tblmCronTimeSlot">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="api_for" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="occurence" null="1" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>NULL</default></row>
+<row name="frequency" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="hours_gap" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="isactive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="min_to_occur" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="hour_to_occur" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="day_to_occur" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="mon_to_occur" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="day_ofwk_to_occur" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="path_folder" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="sub_dir" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="cron_script" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="param" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="created_by" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="modified_by" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_modified" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="110" y="2595" name="tblmCronMasterList">
+<row name="ID" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="Description" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="Path" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="Sequence" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="IsRunning" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="IsAwaiting" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="IDSellerChannel" null="1" autoincrement="0">
+<datatype>INT(15)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>ID</part>
+</key>
+</table>
+<table x="1852" y="378" name="tblmCRM_CtrlNum">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="maxlimit" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="date_effective" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="date_expired" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="isActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="114" y="382" name="tbltFulfilled_Shipments">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(10)</datatype>
+<default>NULL</default></row>
+<row name="amazon_order_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="merchant_order_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="shipment_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="shipment_item_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="amazon_order_item_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="merchant_order_item_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="purchase_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="payments_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="shipment_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="reporting_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="buyer_email" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="buyer_name" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="buyer_phone_number" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="sku" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="product_name" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="quantity_shipped" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="currency" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="item_price" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="item_tax" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="shipping_price" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="shipping_tax" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="gift_wrap_price" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="gift_wrap_tax" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_service_level" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="recipient_name" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_address_1" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="ship_address_2" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="ship_address_3" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="ship_city" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_state" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_postal_code" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_country" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_phone_number" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="bill_address_1" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="bill_address_2" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="bill_address_3" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="bill_city" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="bill_state" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="bill_postal_code" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="bill_country" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="item_promotion_discount" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="ship_promotion_discount" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="carrier" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="tracking_number" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="estimated_arrival_date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="fulfillment_center_id" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="fulfillment_channel" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="sales_channel" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="isEmailAddedToSparkpost" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="483" y="1145" name="tblmCRM_CampaignStatus">
+<row name="IDCRM_CampaignStatus" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="Description" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDCRM_CampaignStatus</part>
+</key>
+</table>
+<table x="1456" y="625" name="tblmCRM_CampaignEmlTags">
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="icon" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="501" y="1000" name="tblmBillingInterval">
+<row name="IDBillingInterval" null="1" autoincrement="0">
+<datatype>INT(6)</datatype>
+<default>NULL</default></row>
+<row name="NAME" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="stripe_interval" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>IDBillingInterval</part>
+</key>
+</table>
+<table x="483" y="1857" name="tblmProducts">
+<row name="sku" null="1" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+<default>NULL</default></row>
+<row name="id" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="asin" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="price" null="1" autoincrement="0">
+<datatype>FLOAT</datatype>
+<default>NULL</default></row>
+<row name="quantity" null="1" autoincrement="0">
+<datatype>INT(11)</datatype>
+<default>NULL</default></row>
+<row name="ddp_cost" null="1" autoincrement="0">
+<datatype>DECIMAL(15,2)</datatype>
+<default>NULL</default></row>
+<row name="country" null="1" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>NULL</default></row>
+<row name="date_created" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="star" null="1" autoincrement="0">
+<datatype>INT(1)</datatype>
+<default>NULL</default></row>
+<row name="isActive" null="1" autoincrement="0">
+<datatype>TINYINT(1)</datatype>
+<default>NULL</default></row>
+<row name="product_name" null="1" autoincrement="0">
+<datatype>VARCHAR(550)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>

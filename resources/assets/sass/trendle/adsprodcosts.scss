@@ -1,0 +1,63 @@
+.containerAdsProdCostTable{
+	padding: 20px;
+	border: 1px solid #DFDFDF;
+	border-radius: 5px;
+	position:relative;
+}
+
+.containerAdsProdCostTable:hover{
+	box-shadow: 0 0 25px -5px #9e9c9e;
+}
+
+.bidUpdatePopUp a:hover,
+.bidUpdatePopUp a{
+	color: #fff	;
+	cursor: pointer;
+}
+
+.bidUpdatePopUp{
+	position:absolute;
+	padding:20px 10px 5px;
+	background:#FF5722;
+	z-index:1049;
+	border-radius:5px;
+	color: #fff;
+	display:none;
+}
+
+.closeBidUpdatePopUp{
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	cursor:pointer;
+}
+
+.graph_container{
+	border-radius: 5px;
+	border: 1px solid #DFDFDF;
+	box-shadow: 0 0 25px -5px #9e9c9e;
+}
+
+.prodCostsGraph{
+	margin-top:35px;
+	margin-left:-40px;
+}
+
+.bidLegend{
+	padding: 1px;
+	border:1px solid #DFDFDF;
+}
+
+.orange_color{
+	color:#FF5722;	
+}
+
+.hand{
+	cursor:pointer
+}
+
+@media (min-width: 992px) {
+  .modal-adsprodcosts {
+    max-width: 1200px;
+  }
+}

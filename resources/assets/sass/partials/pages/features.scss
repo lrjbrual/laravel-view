@@ -1,0 +1,104 @@
+.padding-features{
+  padding: 40px 0 20px 0;
+}
+.icon-container {
+  margin: auto;
+  height: 76px;
+  width: 76px;
+  line-height: 76px;
+  padding: 0;
+  border: 2px solid #FF5728;
+  font-size: 40px;
+  color: #FF5728;
+  border-radius: 26px;
+}
+i.md-50{
+  padding-top: 10px;
+  font-size: 50px;
+}
+.features-top{
+  padding: 0 8px 20px 8px;
+}
+p.text-justify{
+  text-align: justify;
+}
+
+.section-title {
+  text-transform: capitalize;
+  font-weight: 900;
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.feature-row {
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.feature-ul {
+  margin-bottom: 30px;
+}
+
+.feature-li {
+  font-size: 11pt;
+  color: #4d4d4d;
+  line-height: 40px;
+}
+
+.fa-check-square::before {
+  color: #ff5722;
+  margin-left:-25px;
+  margin-right: 4px;
+}
+
+#feature-marketplaces {
+  height:250px;
+}
+
+#feature-campaign {
+  height:500px;
+}
+
+#feature-refund {
+  height:380px;
+}
+
+#feature-reviews {
+  height:320px;
+}
+
+#feature-product-review {
+  height:250px;
+}
+
+#feature-profitability {
+  height:350px;
+}
+
+#feature-inventory {
+  height: 490px;
+}
+
+#feature-keyword {
+  height: 400px;
+}
+
+.description-right {
+  margin-left:20px;
+}
+
+.description-left {
+  width:100vh;
+}
+
+#marketplace-countries {
+  font-size:10pt;
+  font-weight:bold;
+}
+
+.feature-icons {
+  height: 45px;
+  position: relative;
+  top: -5px;
+}

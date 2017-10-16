@@ -1,0 +1,8 @@
+{
+  "name": "jquery.fancybox",
+  "version": "1.3.4",
+  "main": ["./fancybox/jquery.fancybox-1.3.4.css","./fancybox/jquery.fancybox-1.3.4.js"],
+  "dependencies": {
+    "jquery": "~1.7.2"
+  }
+}

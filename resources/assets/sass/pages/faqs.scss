@@ -1,0 +1,44 @@
+.background-pink-faqs{
+  -webkit-box-shadow: 10px 10px 19px -5px rgba(196,195,199,1);
+  -moz-box-shadow: 10px 10px 19px -5px rgba(196,195,199,1);
+  box-shadow: 10px 10px 19px -5px rgba(196,195,199,1);
+  background-color: #FF7043;
+  margin-bottom: 60px;
+  margin-right: 10px;
+  padding: 30px 40px 10px 40px;
+  color: black;
+  text-align: justify;
+}
+.icon-faqs{
+	color: #00ADB5;
+	background-color: #FF7043;
+}
+.faqHeader {
+	font-size: 27px;
+	margin: 20px;
+}
+
+.panel-heading [data-toggle="collapse"]:after {
+	font-family: 'Glyphicons Halflings';
+	content: "\e072"; /* "play" icon */
+	float: right;
+	color: #FF7043;
+	font-size: 18px;
+	line-height: 22px;
+	/* rotate "play" icon from > (right arrow) to down arrow */
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+	/* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+	color: #00ADB5;
+}
