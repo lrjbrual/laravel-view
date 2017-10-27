@@ -4,7 +4,7 @@
     "dist/switchery.js",
     "dist/switchery.css"
   ],
-  "version": "0.7.0",
+  "version": "0.8.2",
   "homepage": "http://abpetkov.github.io/switchery/",
   "author": [
     "Alexander Petkov <abpetkov@gmail.com> (https://github.com/abpetkov)"
@@ -32,13 +32,14 @@
     "fastclick": "v0.6.11"
   },
   "devDependencies": {},
-  "_release": "0.7.0",
+  "_release": "0.8.2",
   "_resolution": {
     "type": "version",
-    "tag": "0.7.0",
-    "commit": "5ace954f1c850ac60c56f892e451e7d68bed2132"
+    "tag": "0.8.2",
+    "commit": "ea7a65a9b257b5870c727df232adb50612abe407"
   },
   "_source": "https://github.com/abpetkov/switchery.git",
-  "_target": "0.7.0",
-  "_originalSource": "switchery"
+  "_target": "~0.8.2",
+  "_originalSource": "switchery",
+  "_direct": true
 }

@@ -1,5 +1,6 @@
 define([
   'summernote/bs3/ui',
+  'summernote/base/core/dom',
   'summernote/base/summernote-en-US',
   'summernote/base/module/Editor',
   'summernote/base/module/Clipboard',
@@ -11,25 +12,27 @@ define([
   'summernote/base/module/AutoLink',
   'summernote/base/module/AutoSync',
   'summernote/base/module/Placeholder',
-  'summernote/bs3/module/Buttons',
-  'summernote/bs3/module/Toolbar',
-  'summernote/bs3/module/LinkDialog',
-  'summernote/bs3/module/LinkPopover',
-  'summernote/bs3/module/ImageDialog',
-  'summernote/bs3/module/ImagePopover',
-  'summernote/bs3/module/VideoDialog',
-  'summernote/bs3/module/HelpDialog',
-  'summernote/bs3/module/AirPopover',
-  'summernote/bs3/module/HintPopover'
+  'summernote/base/module/Buttons',
+  'summernote/base/module/Toolbar',
+  'summernote/base/module/LinkDialog',
+  'summernote/base/module/LinkPopover',
+  'summernote/base/module/ImageDialog',
+  'summernote/base/module/ImagePopover',
+  'summernote/base/module/TablePopover',
+  'summernote/base/module/VideoDialog',
+  'summernote/base/module/HelpDialog',
+  'summernote/base/module/AirPopover',
+  'summernote/base/module/HintPopover'
 ], function (
-  ui, lang,
+  ui, dom, lang,
   Editor, Clipboard, Dropzone, Codeview, Statusbar, Fullscreen, Handle, AutoLink, AutoSync, Placeholder,
-  Buttons, Toolbar, LinkDialog, LinkPopover, ImageDialog, ImagePopover, VideoDialog, HelpDialog, AirPopover, HintPopover
+  Buttons, Toolbar, LinkDialog, LinkPopover, ImageDialog, ImagePopover, TablePopover, VideoDialog, HelpDialog, AirPopover, HintPopover
 ) {
 
   $.summernote = $.extend($.summernote, {
     version: '@VERSION',
     ui: ui,
+    dom: dom,
 
     plugins: {},
 
@@ -54,13 +57,14 @@ define([
         'linkPopover': LinkPopover,
         'imageDialog': ImageDialog,
         'imagePopover': ImagePopover,
+        'tablePopover': TablePopover,
         'videoDialog': VideoDialog,
         'helpDialog': HelpDialog,
         'airPopover': AirPopover
       },
 
       buttons: {},
-      
+
       lang: 'en-US',
 
       // toolbar
@@ -85,6 +89,10 @@ define([
         link: [
           ['link', ['linkDialogShow', 'unlink']]
         ],
+        table: [
+          ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+          ['delete', ['deleteRow', 'deleteCol', 'deleteTable']]
+        ],
         air: [
           ['color', ['color']],
           ['font', ['bold', 'underline', 'clear']],
@@ -99,6 +107,7 @@ define([
 
       width: null,
       height: null,
+      linkTargetBlank: true,
 
       focus: false,
       tabSize: 4,
@@ -106,6 +115,7 @@ define([
       shortcuts: true,
       textareaAutoSync: true,
       direction: null,
+      tooltip: 'auto',
 
       styleTags: ['p', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
 
@@ -150,7 +160,6 @@ define([
         onEnter: null,
         onKeyup: null,
         onKeydown: null,
-        onSubmit: null,
         onImageUpload: null,
         onImageUploadError: null
       },
@@ -223,44 +232,50 @@ define([
         }
       },
       icons: {
-        'align': 'fa fa-align-left',
-        'alignCenter': 'fa fa-align-center',
-        'alignJustify': 'fa fa-align-justify',
-        'alignLeft': 'fa fa-align-left',
-        'alignRight': 'fa fa-align-right',
-        'indent': 'fa fa-indent',
-        'outdent': 'fa fa-outdent',
-        'arrowsAlt': 'fa fa-arrows-alt',
-        'bold': 'fa fa-bold',
-        'caret': 'caret',
-        'circle': 'fa fa-circle',
-        'close': 'fa fa-close',
-        'code': 'fa fa-code',
-        'eraser': 'fa fa-eraser',
-        'font': 'fa fa-font',
-        'frame': 'fa fa-frame',
-        'italic': 'fa fa-italic',
-        'link': 'fa fa-link',
-        'unlink': 'fa fa-chain-broken',
-        'magic': 'fa fa-magic',
-        'menuCheck': 'fa fa-check',
-        'minus': 'fa fa-minus',
-        'orderedlist': 'fa fa-list-ol',
-        'pencil': 'fa fa-pencil',
-        'picture': 'fa fa-picture-o',
-        'question': 'fa fa-question',
-        'redo': 'fa fa-repeat',
-        'square': 'fa fa-square',
-        'strikethrough': 'fa fa-strikethrough',
-        'subscript': 'fa fa-subscript',
-        'superscript': 'fa fa-superscript',
-        'table': 'fa fa-table',
-        'textHeight': 'fa fa-text-height',
-        'trash': 'fa fa-trash',
-        'underline': 'fa fa-underline',
-        'undo': 'fa fa-undo',
-        'unorderedlist': 'fa fa-list-ul',
-        'video': 'fa fa-youtube-play'
+        'align': 'note-icon-align',
+        'alignCenter': 'note-icon-align-center',
+        'alignJustify': 'note-icon-align-justify',
+        'alignLeft': 'note-icon-align-left',
+        'alignRight': 'note-icon-align-right',
+        'rowBelow': 'note-icon-row-below',
+        'colBefore': 'note-icon-col-before',
+        'colAfter': 'note-icon-col-after',
+        'rowAbove': 'note-icon-row-above',
+        'rowRemove': 'note-icon-row-remove',
+        'colRemove': 'note-icon-col-remove',
+        'indent': 'note-icon-align-indent',
+        'outdent': 'note-icon-align-outdent',
+        'arrowsAlt': 'note-icon-arrows-alt',
+        'bold': 'note-icon-bold',
+        'caret': 'note-icon-caret',
+        'circle': 'note-icon-circle',
+        'close': 'note-icon-close',
+        'code': 'note-icon-code',
+        'eraser': 'note-icon-eraser',
+        'font': 'note-icon-font',
+        'frame': 'note-icon-frame',
+        'italic': 'note-icon-italic',
+        'link': 'note-icon-link',
+        'unlink': 'note-icon-chain-broken',
+        'magic': 'note-icon-magic',
+        'menuCheck': 'note-icon-menu-check',
+        'minus': 'note-icon-minus',
+        'orderedlist': 'note-icon-orderedlist',
+        'pencil': 'note-icon-pencil',
+        'picture': 'note-icon-picture',
+        'question': 'note-icon-question',
+        'redo': 'note-icon-redo',
+        'square': 'note-icon-square',
+        'strikethrough': 'note-icon-strikethrough',
+        'subscript': 'note-icon-subscript',
+        'superscript': 'note-icon-superscript',
+        'table': 'note-icon-table',
+        'textHeight': 'note-icon-text-height',
+        'trash': 'note-icon-trash',
+        'underline': 'note-icon-underline',
+        'undo': 'note-icon-undo',
+        'unorderedlist': 'note-icon-unorderedlist',
+        'video': 'note-icon-video'
       }
     }
   });

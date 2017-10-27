@@ -1,16 +1,16 @@
-export var swalPrefix = 'swal2-'
+export const swalPrefix = 'swal2-'
 
-export var prefix = function (items) {
-  var result = {}
-  for (var i in items) {
+export const prefix = (items) => {
+  const result = {}
+  for (const i in items) {
     result[items[i]] = swalPrefix + items[i]
   }
   return result
 }
 
-export var swalClasses = prefix([
+export const swalClasses = prefix([
   'container',
-  'in',
+  'shown',
   'iosfix',
   'modal',
   'overlay',
@@ -19,8 +19,9 @@ export var swalClasses = prefix([
   'hide',
   'noanimation',
   'close',
+  'title',
   'content',
-  'spacer',
+  'buttonswrapper',
   'confirm',
   'cancel',
   'icon',
@@ -39,10 +40,22 @@ export var swalClasses = prefix([
   'progresscircle',
   'progressline',
   'loading',
-  'styled'
+  'styled',
+  'top',
+  'top-left',
+  'top-right',
+  'center',
+  'center-left',
+  'center-right',
+  'bottom',
+  'bottom-left',
+  'bottom-right',
+  'grow-row',
+  'grow-column',
+  'grow-fullscreen'
 ])
 
-export var iconTypes = prefix([
+export const iconTypes = prefix([
   'success',
   'warning',
   'info',

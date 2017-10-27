@@ -1,9 +1,8 @@
 {
     "name": "countUp.js",
-    "main": "dist/countUp.min.js",
+    "main": ["dist/countUp.min.js"],
     "author": "Jamie Perkins",
     "ignore": [
-        "CHANGELOG.md",
         "LICENSE.md",
         "README.md",
         "contributing.md",

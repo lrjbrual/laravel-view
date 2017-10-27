@@ -1,12 +1,12 @@
 {
     "name": "seiyria/bootstrap-slider",
     "type": "library",
-    "version": "9.3.0",
+    "version": "9.9.0",
     "description": "A less buggy fork of the original bootstrap slider found on http://www.eyecon.ro/ by Stefan Petre. It was forked so we could update the slider since the original wasn't under version control.",
     "keywords": ["slider", "css", "bootstrap", "javascript"],
     "homepage": "https://github.com/seiyria/bootstrap-slider",
     "require": {},
-    "license": "Apache 2.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "Kyle Kemp",

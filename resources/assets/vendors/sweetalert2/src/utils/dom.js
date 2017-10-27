@@ -1,11 +1,9 @@
-/* global MouseEvent */
-
 import { default as sweetAlert } from '../sweetalert2.js'
-import { swalPrefix, swalClasses } from './classes.js'
-import { sweetContainer } from './default.js'
+import { swalClasses, iconTypes } from './classes.js'
+import { uniqueArray, error } from './utils.js'
 
 // Remember state in cases where opening and handling a modal will fiddle with it.
-export var states = {
+export const states = {
   previousWindowKeyDown: null,
   previousActiveElement: null,
   previousBodyPadding: null
@@ -14,60 +12,61 @@ export var states = {
 /*
  * Add modal + overlay to DOM
  */
-export var init = function () {
+export const init = (params) => {
+  // Clean up the old modal if it exists
+  const c = getContainer()
+  if (c) {
+    c.parentNode.removeChild(c)
+  }
+
   if (typeof document === 'undefined') {
-    console.error('SweetAlert2 requires document to initialize')
-    return
-  } else if (document.getElementsByClassName(swalClasses.container).length) {
+    error('SweetAlert2 requires document to initialize')
     return
   }
 
-  document.body.appendChild(sweetContainer)
+  const container = document.createElement('div')
+  container.className = swalClasses.container
+  container.innerHTML = sweetHTML
 
-  var modal = getModal()
-  var input = getChildByClass(modal, swalClasses.input)
-  var file = getChildByClass(modal, swalClasses.file)
-  var range = modal.querySelector('.' + swalClasses.range + ' input')
-  var select = getChildByClass(modal, swalClasses.select)
-  var checkbox = modal.querySelector('.' + swalClasses.checkbox + ' input')
-  var textarea = getChildByClass(modal, swalClasses.textarea)
+  let targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target
+  targetElement.appendChild(container)
 
-  input.oninput = function () {
+  const modal = getModal()
+  const input = getChildByClass(modal, swalClasses.input)
+  const file = getChildByClass(modal, swalClasses.file)
+  const range = modal.querySelector(`.${swalClasses.range} input`)
+  const rangeOutput = modal.querySelector(`.${swalClasses.range} output`)
+  const select = getChildByClass(modal, swalClasses.select)
+  const checkbox = modal.querySelector(`.${swalClasses.checkbox} input`)
+  const textarea = getChildByClass(modal, swalClasses.textarea)
+
+  input.oninput = () => {
     sweetAlert.resetValidationError()
   }
 
-  input.onkeydown = function (event) {
-    setTimeout(function () {
-      if (event.keyCode === 13) {
-        event.stopPropagation()
-        sweetAlert.clickConfirm()
-      }
-    }, 0)
-  }
-
-  file.onchange = function () {
+  file.onchange = () => {
     sweetAlert.resetValidationError()
   }
 
-  range.oninput = function () {
+  range.oninput = () => {
+    sweetAlert.resetValidationError()
+    rangeOutput.value = range.value
+  }
+
+  range.onchange = () => {
     sweetAlert.resetValidationError()
     range.previousSibling.value = range.value
   }
 
-  range.onchange = function () {
-    sweetAlert.resetValidationError()
-    range.previousSibling.value = range.value
-  }
-
-  select.onchange = function () {
+  select.onchange = () => {
     sweetAlert.resetValidationError()
   }
 
-  checkbox.onchange = function () {
+  checkbox.onchange = () => {
     sweetAlert.resetValidationError()
   }
 
-  textarea.oninput = function () {
+  textarea.oninput = () => {
     sweetAlert.resetValidationError()
   }
 
@@ -77,98 +76,146 @@ export var init = function () {
 /*
  * Manipulate DOM
  */
-export var elementByClass = function (className) {
-  return sweetContainer.querySelector('.' + className)
-}
 
-export var getModal = function () {
-  return document.body.querySelector('.' + swalClasses.modal) || init()
-}
+const sweetHTML = `
+ <div role="dialog" aria-modal="true" aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses.content}" class="${swalClasses.modal}" tabindex="-1">
+   <ul class="${swalClasses.progresssteps}"></ul>
+   <div class="${swalClasses.icon} ${iconTypes.error}">
+     <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>
+   </div>
+   <div class="${swalClasses.icon} ${iconTypes.question}">?</div>
+   <div class="${swalClasses.icon} ${iconTypes.warning}">!</div>
+   <div class="${swalClasses.icon} ${iconTypes.info}">i</div>
+   <div class="${swalClasses.icon} ${iconTypes.success}">
+     <div class="swal2-success-circular-line-left"></div>
+     <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+     <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+     <div class="swal2-success-circular-line-right"></div>
+   </div>
+   <img class="${swalClasses.image}" />
+   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
+   <div id="${swalClasses.content}" class="${swalClasses.content}"></div>
+   <input class="${swalClasses.input}" />
+   <input type="file" class="${swalClasses.file}" />
+   <div class="${swalClasses.range}">
+     <output></output>
+     <input type="range" />
+   </div>
+   <select class="${swalClasses.select}"></select>
+   <div class="${swalClasses.radio}"></div>
+   <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
+     <input type="checkbox" />
+   </label>
+   <textarea class="${swalClasses.textarea}"></textarea>
+   <div class="${swalClasses.validationerror}" id="${swalClasses.validationerror}"></div>
+   <div class="${swalClasses.buttonswrapper}">
+     <button type="button" class="${swalClasses.confirm}">OK</button>
+     <button type="button" class="${swalClasses.cancel}">Cancel</button>
+   </div>
+   <button type="button" class="${swalClasses.close}">×</button>
+ </div>
+`.replace(/(^|\n)\s*/g, '')
 
-export var getIcons = function () {
-  var modal = getModal()
+export const getContainer = () => document.body.querySelector('.' + swalClasses.container)
+
+export const getModal = () => getContainer() ? getContainer().querySelector('.' + swalClasses.modal) : null
+
+export const getIcons = () => {
+  const modal = getModal()
   return modal.querySelectorAll('.' + swalClasses.icon)
 }
 
-export var getSpacer = function () {
-  return elementByClass(swalClasses.spacer)
+export const elementByClass = (className) => getContainer() ? getContainer().querySelector('.' + className) : null
+
+export const getTitle = () => elementByClass(swalClasses.title)
+
+export const getContent = () => elementByClass(swalClasses.content)
+
+export const getImage = () => elementByClass(swalClasses.image)
+
+export const getProgressSteps = () => elementByClass(swalClasses.progresssteps)
+
+export const getValidationError = () => elementByClass(swalClasses.validationerror)
+
+export const getConfirmButton = () => elementByClass(swalClasses.confirm)
+
+export const getCancelButton = () => elementByClass(swalClasses.cancel)
+
+export const getButtonsWrapper = () => elementByClass(swalClasses.buttonswrapper)
+
+export const getCloseButton = () => elementByClass(swalClasses.close)
+
+export const getFocusableElements = () => {
+  const focusableElementsWithTabindex = Array.from(
+    getModal().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')
+  )
+  // sort according to tabindex
+  .sort((a, b) => {
+    a = parseInt(a.getAttribute('tabindex'))
+    b = parseInt(b.getAttribute('tabindex'))
+    if (a > b) {
+      return 1
+    } else if (a < b) {
+      return -1
+    }
+    return 0
+  })
+
+  const otherFocusableElements = Array.prototype.slice.call(
+    getModal().querySelectorAll('button, input:not([type=hidden]), textarea, select, a, [tabindex="0"]')
+  )
+
+  return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements))
 }
 
-export var getProgressSteps = function () {
-  return elementByClass(swalClasses.progresssteps)
-}
-
-export var getValidationError = function () {
-  return elementByClass(swalClasses.validationerror)
-}
-
-export var getConfirmButton = function () {
-  return elementByClass(swalClasses.confirm)
-}
-
-export var getCancelButton = function () {
-  return elementByClass(swalClasses.cancel)
-}
-
-export var getCloseButton = function () {
-  return elementByClass(swalClasses.close)
-}
-
-export var getFocusableElements = function (focusCancel) {
-  var buttons = [getConfirmButton(), getCancelButton()]
-  if (focusCancel) {
-    buttons.reverse()
+export const hasClass = (elem, className) => {
+  if (elem.classList) {
+    return elem.classList.contains(className)
   }
-  return buttons.concat(Array.prototype.slice.call(
-    getModal().querySelectorAll('button:not([class^=' + swalPrefix + ']), input:not([type=hidden]), textarea, select')
-  ))
+  return false
 }
 
-export var hasClass = function (elem, className) {
-  return elem.classList.contains(className)
-}
-
-export var focusInput = function (input) {
+export const focusInput = (input) => {
   input.focus()
 
   // place cursor at end of text in text input
   if (input.type !== 'file') {
     // http://stackoverflow.com/a/2345915/1331425
-    var val = input.value
+    const val = input.value
     input.value = ''
     input.value = val
   }
 }
 
-export var addClass = function (elem, className) {
+export const addClass = (elem, className) => {
   if (!elem || !className) {
     return
   }
-  var classes = className.split(/\s+/)
-  classes.forEach(function (className) {
+  const classes = className.split(/\s+/).filter(Boolean)
+  classes.forEach((className) => {
     elem.classList.add(className)
   })
 }
 
-export var removeClass = function (elem, className) {
+export const removeClass = (elem, className) => {
   if (!elem || !className) {
     return
   }
-  var classes = className.split(/\s+/)
-  classes.forEach(function (className) {
+  const classes = className.split(/\s+/).filter(Boolean)
+  classes.forEach((className) => {
     elem.classList.remove(className)
   })
 }
 
-export var getChildByClass = function (elem, className) {
-  for (var i = 0; i < elem.childNodes.length; i++) {
+export const getChildByClass = (elem, className) => {
+  for (let i = 0; i < elem.childNodes.length; i++) {
     if (hasClass(elem.childNodes[i], className)) {
       return elem.childNodes[i]
     }
   }
 }
 
-export var show = function (elem, display) {
+export const show = (elem, display) => {
   if (!display) {
     display = 'block'
   }
@@ -176,23 +223,21 @@ export var show = function (elem, display) {
   elem.style.display = display
 }
 
-export var hide = function (elem) {
+export const hide = (elem) => {
   elem.style.opacity = ''
   elem.style.display = 'none'
 }
 
-export var empty = function (elem) {
+export const empty = (elem) => {
   while (elem.firstChild) {
     elem.removeChild(elem.firstChild)
   }
 }
 
 // borrowed from jqeury $(elem).is(':visible') implementation
-export var isVisible = function (elem) {
-  return elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length
-}
+export const isVisible = (elem) => elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length
 
-export var removeStyleProperty = function (elem, property) {
+export const removeStyleProperty = (elem, property) => {
   if (elem.style.removeProperty) {
     elem.style.removeProperty(property)
   } else {
@@ -200,100 +245,14 @@ export var removeStyleProperty = function (elem, property) {
   }
 }
 
-export var getTopMargin = function (elem) {
-  var elemDisplay = elem.style.display
-  elem.style.left = '-9999px'
-  elem.style.display = 'block'
-
-  var height = elem.clientHeight
-
-  elem.style.left = ''
-  elem.style.display = elemDisplay
-  return ('-' + parseInt(height / 2, 10) + 'px')
-}
-
-export var fadeIn = function (elem, interval) {
-  if (+elem.style.opacity < 1) {
-    interval = interval || 16
-    elem.style.opacity = 0
-    elem.style.display = 'block'
-    var last = +new Date()
-    var tick = function () {
-      var newOpacity = +elem.style.opacity + (new Date() - last) / 100
-      elem.style.opacity = (newOpacity > 1) ? 1 : newOpacity
-      last = +new Date()
-
-      if (+elem.style.opacity < 1) {
-        setTimeout(tick, interval)
-      }
-    }
-    tick()
-  }
-}
-
-export var fadeOut = function (elem, interval) {
-  if (+elem.style.opacity > 0) {
-    interval = interval || 16
-    var opacity = elem.style.opacity
-    var last = +new Date()
-    var tick = function () {
-      var change = new Date() - last
-      var newOpacity = +elem.style.opacity - change / (opacity * 100)
-      elem.style.opacity = newOpacity
-      last = +new Date()
-
-      if (+elem.style.opacity > 0) {
-        setTimeout(tick, interval)
-      } else {
-        hide(elem)
-      }
-    }
-    tick()
-  }
-}
-
-export var fireClick = function (node) {
-  // Taken from http://www.nonobtrusive.com/2011/11/29/programatically-fire-crossbrowser-click-event-with-javascript/
-  // Then fixed for today's Chrome browser.
-  if (typeof MouseEvent === 'function') {
-    // Up-to-date approach
-    var mevt = new MouseEvent('click', {
-      view: window,
-      bubbles: false,
-      cancelable: true
-    })
-    node.dispatchEvent(mevt)
-  } else if (document.createEvent) {
-    // Fallback
-    var evt = document.createEvent('MouseEvents')
-    evt.initEvent('click', false, false)
-    node.dispatchEvent(evt)
-  } else if (document.createEventObject) {
-    node.fireEvent('onclick')
-  } else if (typeof node.onclick === 'function') {
-    node.onclick()
-  }
-}
-
-export var stopEventPropagation = function (e) {
-  // In particular, make sure the space bar doesn't scroll the main window.
-  if (typeof e.stopPropagation === 'function') {
-    e.stopPropagation()
-    e.preventDefault()
-  } else if (window.event && window.event.hasOwnProperty('cancelBubble')) {
-    window.event.cancelBubble = true
-  }
-}
-
-export var animationEndEvent = (function () {
-  var testEl = document.createElement('div')
-  var transEndEventNames = {
+export const animationEndEvent = (() => {
+  const testEl = document.createElement('div')
+  const transEndEventNames = {
     'WebkitAnimation': 'webkitAnimationEnd',
     'OAnimation': 'oAnimationEnd oanimationend',
-    'msAnimation': 'MSAnimationEnd',
     'animation': 'animationend'
   }
-  for (var i in transEndEventNames) {
+  for (const i in transEndEventNames) {
     if (transEndEventNames.hasOwnProperty(i) &&
       testEl.style[i] !== undefined) {
       return transEndEventNames[i]
@@ -303,43 +262,46 @@ export var animationEndEvent = (function () {
   return false
 })()
 
-// Reset the page to its previous state
-export var resetPrevState = function () {
-  var modal = getModal()
+// Reset previous window keydown handler and focued element
+export const resetPrevState = () => {
   window.onkeydown = states.previousWindowKeyDown
   if (states.previousActiveElement && states.previousActiveElement.focus) {
+    let x = window.scrollX
+    let y = window.scrollY
     states.previousActiveElement.focus()
+    if (x && y) { // IE has no scrollX/scrollY support
+      window.scrollTo(x, y)
+    }
   }
-  clearTimeout(modal.timeout)
 }
 
 // Measure width of scrollbar
 // https://github.com/twbs/bootstrap/blob/master/js/modal.js#L279-L286
-export var measureScrollbar = function () {
-  var scrollDiv = document.createElement('div')
+export const measureScrollbar = () => {
+  var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints
+  if (supportsTouch) {
+    return 0
+  }
+  const scrollDiv = document.createElement('div')
   scrollDiv.style.width = '50px'
   scrollDiv.style.height = '50px'
   scrollDiv.style.overflow = 'scroll'
   document.body.appendChild(scrollDiv)
-  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
+  const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
   document.body.removeChild(scrollDiv)
   return scrollbarWidth
 }
 
 // JavaScript Debounce Function
-// https://davidwalsh.name/javascript-debounce-function
-export var debounce = function (func, wait, immediate) {
-  var timeout
-  return function () {
-    var context = this
-    var args = arguments
-    var later = function () {
+// Simplivied version of https://davidwalsh.name/javascript-debounce-function
+export const debounce = (func, wait) => {
+  let timeout
+  return () => {
+    const later = () => {
       timeout = null
-      if (!immediate) func.apply(context, args)
+      func()
     }
-    var callNow = immediate && !timeout
     clearTimeout(timeout)
     timeout = setTimeout(later, wait)
-    if (callNow) func.apply(context, args)
   }
 }

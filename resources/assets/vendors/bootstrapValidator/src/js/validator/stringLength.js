@@ -10,7 +10,9 @@
         html5Attributes: {
             message: 'message',
             min: 'min',
-            max: 'max'
+            max: 'max',
+            trim: 'trim',
+            utf8bytes: 'utf8Bytes'
         },
 
         enableByHtml5: function($field) {
@@ -43,19 +45,41 @@
          *      - A callback function that returns the number
          *
          * - message: The invalid message
+         * - trim: Indicate the length will be calculated after trimming the value or not. It is false, by default
+         * - utf8bytes: Evaluate string length in UTF-8 bytes, default to false
          * @returns {Object}
          */
         validate: function(validator, $field, options) {
             var value = $field.val();
+            if (options.trim === true || options.trim === 'true') {
+                value = $.trim(value);
+            }
+
             if (value === '') {
                 return true;
             }
 
-            var min     = $.isNumeric(options.min) ? options.min : validator.getDynamicOption($field, options.min),
-                max     = $.isNumeric(options.max) ? options.max : validator.getDynamicOption($field, options.max),
-                length  = value.length,
-                isValid = true,
-                message = options.message || $.fn.bootstrapValidator.i18n.stringLength['default'];
+            var min        = $.isNumeric(options.min) ? options.min : validator.getDynamicOption($field, options.min),
+                max        = $.isNumeric(options.max) ? options.max : validator.getDynamicOption($field, options.max),
+                // Credit to http://stackoverflow.com/a/23329386 (@lovasoa) for UTF-8 byte length code
+                utf8Length = function(str) {
+                                 var s = str.length;
+                                 for (var i = str.length - 1; i >= 0; i--) {
+                                     var code = str.charCodeAt(i);
+                                     if (code > 0x7f && code <= 0x7ff) {
+                                         s++;
+                                     } else if (code > 0x7ff && code <= 0xffff) {
+                                         s += 2;
+                                     }
+                                     if (code >= 0xDC00 && code <= 0xDFFF) {
+                                         i--;
+                                     }
+                                 }
+                                 return s;
+                             },
+                length     = options.utf8Bytes ? utf8Length(value) : value.length,
+                isValid    = true,
+                message    = options.message || $.fn.bootstrapValidator.i18n.stringLength['default'];
 
             if ((min && length < parseInt(min, 10)) || (max && length > parseInt(max, 10))) {
                 isValid = false;

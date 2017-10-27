@@ -1,4 +1,23 @@
 
+0.8.2 / 2016-10-31
+==================
+
+  * Adding semicolon to the end of the distribuition file
+  * Check switchery element state before changing it
+
+0.8.1 / 2015-06-26
+==================
+
+  * Check disabled values properly, because of `.isDisabled()` method returning improper value
+
+0.8.0 / 2015-04-03
+==================
+
+  * Secondary jack color functionality
+  * Enable/disable switch dynamically
+  * Destroy event handlers attached to a Switchery instance
+  * Meteor.js integration
+
 0.7.0 / 2014-12-09
 ==================
 

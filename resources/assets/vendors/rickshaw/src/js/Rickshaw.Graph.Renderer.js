@@ -23,13 +23,17 @@ Rickshaw.Graph.Renderer = Rickshaw.Class.create( {
 			unstack: true,
 			padding: { top: 0.01, right: 0, bottom: 0.01, left: 0 },
 			stroke: false,
-			fill: false
+			fill: false,
+			opacity: 1
 		};
 	},
 
 	domain: function(data) {
 		// Requires that at least one series contains some data
 		var stackedData = data || this.graph.stackedData || this.graph.stackData();
+
+		// filter out any series that may be empty in the current x-domain
+		stackedData = stackedData.filter(function (a) { return a && a.length !== 0; });
 
 		var xMin = +Infinity;
 		var xMax = -Infinity;
@@ -101,41 +105,12 @@ Rickshaw.Graph.Renderer = Rickshaw.Class.create( {
 		}
 
 		var i = 0;
-		var j;
 		series.forEach( function(series) {
 			if (series.disabled) return;
 			series.path = pathNodes[0][i];
 			if (this.stroke) series.stroke = strokeNodes[0][i];
 			this._styleSeries(series);
 			i++;
-
-			// support for a line breakpoint
-			if (series.lineBreakPoint && series.path.pathSegList && (series.data.length > series.lineBreakPoint) && !series.noPrediction) {
-
-				var pathStash = [];
-				for (var j = series.path.pathSegList.numberOfItems; j > series.lineBreakPoint; j--) {
-					pathStash.push( series.path.pathSegList.removeItem(series.path.pathSegList.numberOfItems - 1) );
-				}
-
-				var len = series.path.getTotalLength(); // This might crash Chrome<37/Webkit on certain lines
-
-				//restore
-				for (j = pathStash.length - 1; j >= 0; j--) {
-					series.path.pathSegList.appendItem(pathStash[j]);
-				}
-
-				var len2 = series.path.getTotalLength();
-
-				var times = ((len2 - len) / 8) + 2; // get the times we need to add the dashed pattern plus a safety
-
-				var strokes = [];
-				for (j = 0; j < times; j++) {
-					strokes.push("5,3");
-				}
-
-				series.path.setAttribute('style', 'stroke-dasharray:' + len + strokes.join(', '));
-			}
-
 		}, this );
 
 	},
@@ -144,10 +119,13 @@ Rickshaw.Graph.Renderer = Rickshaw.Class.create( {
 
 		var fill = this.fill ? series.color : 'none';
 		var stroke = this.stroke ? series.color : 'none';
+		var strokeWidth = series.strokeWidth ? series.strokeWidth : this.strokeWidth;
+		var opacity = series.opacity ? series.opacity : this.opacity;
 
 		series.path.setAttribute('fill', fill);
 		series.path.setAttribute('stroke', stroke);
-		series.path.setAttribute('stroke-width', this.strokeWidth);
+		series.path.setAttribute('stroke-width', strokeWidth);
+		series.path.setAttribute('opacity', opacity);
 
 		if (series.className) {
 			d3.select(series.path).classed(series.className, true);

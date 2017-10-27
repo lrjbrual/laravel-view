@@ -56,6 +56,13 @@
         <td>Children selector for the input that will store the picker selected value.</td>
     </tr>
     <tr>
+        <td>hexNumberSignPrefix</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td>If true, put a '&num;' (number sign) before hex strings.
+        </td>
+    </tr>
+    <tr>
         <td>horizontal</td>
         <td>boolean</td>
         <td>false</td>
@@ -108,6 +115,23 @@
         <td>List of pre selected colors (hex format). If you choose one of these colors, the alias is returned instead of the hex
             code.
         </td>
+    </tr>
+    <tr>
+      <td>fallbackColor</td>
+      <td>string</td>
+      <td>null</td>
+      <td>
+        Fallback color string that will be applied when the color failed to be parsed.
+        If <var>null</var>, it will keep the current color if any.
+      </td>
+    </tr>
+    <tr>
+      <td>fallbackFormat</td>
+      <td>string</td>
+      <td>hex</td>
+      <td>
+        Fallback color format (e.g. when not specified or for alias mode, when selecting non aliased colors)
+      </td>
     </tr>
     </tbody>
 </table>

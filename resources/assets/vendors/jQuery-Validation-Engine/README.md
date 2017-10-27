@@ -214,7 +214,7 @@ $("#formID").validationEngine().css({border : "2px solid #000"});
 ### Suppress Validation Feature
 
 Hyperlink and Button ( <button> and input ) allow suppress the validation for special case such as multi fake submit buttons in web page.
-An id attribute for the HTML element is requried.
+An id attribute for the HTML element is required.
 
 Syntax (HTML5):
 ```html
@@ -244,7 +244,7 @@ $("#formID1").validationEngine('attach');
 
 ### detach
 
-Unregisters any bindings that may point to jQuery.validaitonEngine.
+Unregisters any bindings that may point to jQuery.validationEngine.
 
 ```js
 $("#formID1").validationEngine('detach');
@@ -501,7 +501,7 @@ Please refer to the section *Custom Regex* for a list of available regular expre
 
 ### custom[function_name]
 
-Validates the element's value to a predefined function included in the language file (compared to funCall that can be anywhere in your application),
+Validates the element's value to a predefined function included in the language file (compared to funcCall that can be anywhere in your application),
 
 ```html
 <input value="someone@nowhere.com" class="validate[required,custom[requiredInFunction]]" type="text" name="email" id="email" />

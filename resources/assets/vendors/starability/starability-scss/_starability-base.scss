@@ -1,6 +1,6 @@
 @import 'variables';
 
-@mixin starability-base($bg-image-path: 'icons') {
+@mixin starability-base() {
   display: block;
   position: relative;
   width: $star-count * $star-size;
@@ -16,12 +16,25 @@
 
   > input:checked ~ label,
   > input:focus ~ label {
+    background-position: 0 0;
+  }
+
+  > input:checked + label,
+  > input:focus + label {
     background-position: 0 (-$star-size);
   }
 
   @if ($hover-enabled) {
     > input:hover ~ label {
+      background-position: 0 0;
+    }
+
+    > input:hover + label {
       background-position: 0 (-$star-size);
+    }
+
+    > input:hover + label::before {
+      opacity: 1;
     }
   }
 
@@ -34,32 +47,62 @@
   > label {
     position: relative;
     display: inline-block;
-    float: right;
+    float: left;
     width: $star-size;
     height: $star-size;
+    font-size: 0.1em;
     color: transparent;
     cursor: pointer;
-    background-image: url('#{$image-directory-path}/#{$bg-image-path}.png');
+    background-image: $img-stars-sprite;
     background-repeat: no-repeat;
+    background-position: 0 (-$star-size);
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: $star-size;
+      background-image: $img-stars-sprite;
+      background-position: 0 $star-size;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    @if ($hover-enabled) {
+
+      // This function makes sure the right number of stars is highlighted
+      $star-count-highlight: $star-count;
+
+      @while $star-count-highlight > 0 {
+        $star-number: $star-count-highlight;
+
+        &:nth-of-type(#{$star-number})::before {
+          width: $star-number * $star-size - $star-size;
+          left: -($star-number * $star-size - $star-size);
+        }
+
+        $star-count-highlight: $star-count-highlight - 1;
+      }
+    }
 
     @media screen and (min-resolution: 192dpi) {
-      background-image: url('#{$image-directory-path}/#{$bg-image-path}@2x.png');
+      background-image: $img-stars-sprite-2x;
       background-size: $star-size auto;
     }
   }
 }
 
-@mixin starability-animation-base($bg-image-path: 'icons') {
-  display: none;
-  position: absolute;
+@mixin starability-animation-base($img-animated: $img-stars-sprite, $img-animated-2x: $img-stars-sprite-2x) {
   content: ' ';
+  position: absolute;
+  display: none;
   width: $star-size;
   height:  $star-size;
-  background-image: url('#{$image-directory-path}/#{$bg-image-path}.png');
+  background-image: $img-animated;
   background-repeat: no-repeat;
 
   @media screen and (min-resolution: 192dpi) {
-    background-image: url('#{$image-directory-path}/#{$bg-image-path}@2x.png');
+    background-image: $img-animated-2x;
     background-size: $star-size auto;
   }
 }

@@ -1,11 +1,11 @@
 /**
- * Switchery 0.7.0
+ * Switchery 0.8.2
  * http://abpetkov.github.io/switchery/
  *
  * Authored by Alexander Petkov
  * https://github.com/abpetkov
  *
- * Copyright 2013-2014, Alexander Petkov
+ * Copyright 2013-2015, Alexander Petkov
  * License: The MIT License (MIT)
  * http://opensource.org/licenses/MIT
  *
@@ -17,7 +17,8 @@
 
 var transitionize = require('transitionize')
   , fastclick = require('fastclick')
-  , classes = require('classes');
+  , classes = require('classes')
+  , events = require('events');
 
 /**
  * Expose `Switchery`.
@@ -32,14 +33,15 @@ module.exports = Switchery;
  */
 
 var defaults = {
-    color          : '#64bd63'
-  , secondaryColor : '#dfdfdf'
-  , jackColor      : '#fff'
-  , className      : 'switchery'
-  , disabled       : false
-  , disabledOpacity: 0.5
-  , speed          : '0.4s'
-  , size           : 'default'
+    color             : '#64bd63'
+  , secondaryColor    : '#dfdfdf'
+  , jackColor         : '#fff'
+  , jackSecondaryColor: null
+  , className         : 'switchery'
+  , disabled          : false
+  , disabledOpacity   : 0.5
+  , speed             : '0.4s'
+  , size              : 'default'
 };
 
 /**
@@ -63,6 +65,7 @@ function Switchery(element, options) {
   }
 
   if (this.element != null && this.element.type == 'checkbox') this.init();
+  if (this.isDisabled() === true) this.disable();
 }
 
 /**
@@ -98,6 +101,7 @@ Switchery.prototype.create = function() {
   this.jack = document.createElement('small');
   this.switcher.appendChild(this.jack);
   this.switcher.className = this.options.className;
+  this.events = events(this.switcher, this);
 
   return this.switcher;
 };
@@ -112,28 +116,6 @@ Switchery.prototype.create = function() {
 
 Switchery.prototype.insertAfter = function(reference, target) {
   reference.parentNode.insertBefore(target, reference.nextSibling);
-};
-
-/**
- * See if input is checked.
- *
- * @returns {Boolean}
- * @api private
- */
-
-Switchery.prototype.isChecked = function() {
-  return this.element.checked;
-};
-
-/**
- * See if switcher should be disabled.
- *
- * @returns {Boolean}
- * @api private
- */
-
-Switchery.prototype.isDisabled = function() {
-  return this.options.disabled || this.element.disabled || this.element.readOnly;
 };
 
 /**
@@ -165,7 +147,7 @@ Switchery.prototype.setPosition = function (clicked) {
     this.switcher.style.boxShadow = 'inset 0 0 0 0 ' + this.options.secondaryColor;
     this.switcher.style.borderColor = this.options.secondaryColor;
     this.switcher.style.backgroundColor = (this.options.secondaryColor !== defaults.secondaryColor) ? this.options.secondaryColor : '#fff';
-    this.jack.style.backgroundColor = this.options.jackColor;
+    this.jack.style.backgroundColor = (this.options.jackSecondaryColor !== this.options.jackColor) ? this.options.jackSecondaryColor : this.options.jackColor;
     this.setSpeed();
   }
 };
@@ -178,7 +160,10 @@ Switchery.prototype.setPosition = function (clicked) {
 
 Switchery.prototype.setSpeed = function() {
   var switcherProp = {}
-    , jackProp = { 'left': this.options.speed.replace(/[a-z]/, '') / 2 + 's' };
+    , jackProp = {
+        'background-color': this.options.speed
+      , 'left': this.options.speed.replace(/[a-z]/, '') / 2 + 's'
+    };
 
   if (this.isChecked()) {
     switcherProp = {
@@ -282,29 +267,24 @@ Switchery.prototype.handleChange = function() {
  */
 
 Switchery.prototype.handleClick = function() {
-  var self = this
-    , switcher = this.switcher
-    , parent = self.element.parentNode.tagName.toLowerCase()
+  var switcher = this.switcher;
+
+  fastclick(switcher);
+  this.events.bind('click', 'bindClick');
+};
+
+/**
+ * Attach all methods that need to happen on switcher click.
+ *
+ * @api private
+ */
+
+Switchery.prototype.bindClick = function() {
+  var parent = this.element.parentNode.tagName.toLowerCase()
     , labelParent = (parent === 'label') ? false : true;
 
-  if (this.isDisabled() === false) {
-    fastclick(switcher);
-
-    if (switcher.addEventListener) {
-      switcher.addEventListener('click', function(e) {
-        self.setPosition(labelParent);
-        self.handleOnchange(self.element.checked);
-      });
-    } else {
-      switcher.attachEvent('onclick', function() {
-        self.setPosition(labelParent);
-        self.handleOnchange(self.element.checked);
-      });
-    }
-  } else {
-    this.element.disabled = true;
-    this.switcher.style.opacity = this.options.disabledOpacity;
-  }
+  this.setPosition(labelParent);
+  this.handleOnchange(this.element.checked);
 };
 
 /**
@@ -341,4 +321,66 @@ Switchery.prototype.init = function() {
   this.markAsSwitched();
   this.handleChange();
   this.handleClick();
+};
+
+/**
+ * See if input is checked.
+ *
+ * @returns {Boolean}
+ * @api public
+ */
+
+Switchery.prototype.isChecked = function() {
+  return this.element.checked;
+};
+
+/**
+ * See if switcher should be disabled.
+ *
+ * @returns {Boolean}
+ * @api public
+ */
+
+Switchery.prototype.isDisabled = function() {
+  return this.options.disabled || this.element.disabled || this.element.readOnly;
+};
+
+/**
+ * Destroy all event handlers attached to the switch.
+ *
+ * @api public
+ */
+
+Switchery.prototype.destroy = function() {
+  this.events.unbind();
+};
+
+/**
+ * Enable disabled switch element.
+ *
+ * @api public
+ */
+
+Switchery.prototype.enable = function() {
+  if (!this.options.disabled) return;
+  if (this.options.disabled) this.options.disabled = false;
+  if (this.element.disabled) this.element.disabled = false;
+  if (this.element.readOnly) this.element.readOnly = false;
+  this.switcher.style.opacity = 1;
+  this.events.bind('click', 'bindClick');
+};
+
+/**
+ * Disable switch element.
+ *
+ * @api public
+ */
+
+Switchery.prototype.disable = function() {
+  if (this.options.disabled) return;
+  if (!this.options.disabled) this.options.disabled = true;
+  if (!this.element.disabled) this.element.disabled = true;
+  if (!this.element.readOnly) this.element.readOnly = true;
+  this.switcher.style.opacity = this.options.disabledOpacity;
+  this.destroy();
 };

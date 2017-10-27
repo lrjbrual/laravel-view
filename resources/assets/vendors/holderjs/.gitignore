@@ -1,4 +1,5 @@
-testing/
-.idea/
+.versions
 node_modules/
-holder.min.js
+todo.md
+npm-debug.log
+.fuse_hidden*

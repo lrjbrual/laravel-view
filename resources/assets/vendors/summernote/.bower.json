@@ -17,17 +17,17 @@
   ],
   "dependencies": {
     "jquery": ">= 1.9.0",
-    "bootstrap": ">= 3.0.1",
-    "font-awesome": ">=4.2.0"
+    "bootstrap": ">= 3.0.1"
   },
-  "version": "0.7.3",
-  "_release": "0.7.3",
+  "version": "0.8.8",
+  "_release": "0.8.8",
   "_resolution": {
     "type": "version",
-    "tag": "v0.7.3",
-    "commit": "fa0a457368b01508725d2ab640200b17d50be62d"
+    "tag": "v0.8.8",
+    "commit": "28b5be6cd5e1c422cdb15aae6ef237b6c2f3f16c"
   },
   "_source": "https://github.com/summernote/summernote.git",
-  "_target": "~0.7.3",
-  "_originalSource": "summernote"
+  "_target": "~0.8.8",
+  "_originalSource": "summernote",
+  "_direct": true
 }

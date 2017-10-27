@@ -1,6 +1,6 @@
 {
   "name": "starability",
-  "version": "1.0.5",
+  "version": "2.1.0",
   "homepage": "https://github.com/LunarLogic/starability",
   "authors": [
     "Anna Migas <amjmigas@gmail.com>"
@@ -28,13 +28,14 @@
     "gulpfile.js",
     "package.json"
   ],
-  "_release": "1.0.5",
+  "_release": "2.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.5",
-    "commit": "d9fa9ed1c9ca35fdb5799dadcb9daf1183172c66"
+    "tag": "v2.1.0",
+    "commit": "6a2b63d01c6d8d4ba0ec156ee5e6508cac1343f3"
   },
   "_source": "https://github.com/LunarLogic/starability.git",
-  "_target": "~1.0.5",
-  "_originalSource": "starability"
+  "_target": "~2.1.0",
+  "_originalSource": "starability",
+  "_direct": true
 }
